@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farewell Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .swing-heart {
+            animation: swing 4s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+        @keyframes swing {
+            from {
+                transform: rotateY(-45deg);
+            }
+            to {
+                transform: rotateY(45deg);
+            }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    
+    <div class="relative text-center">
+        <!-- Envelope-->
+        <div id="envelope" class="w-48 h-32 bg-red-500 relative flex items-center justify-center cursor-pointer transition-transform duration-500">
+            <div class="absolute top-0 left-0 w-0 h-0 border-l-[96px] border-l-transparent border-r-[96px] border-r-transparent border-b-[60px] border-b-red-700"></div>
+            <div class="absolute bottom-0 left-0 w-full h-1/2 bg-red-700"></div>
+            <div class="absolute w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white text-2xl shadow-2xl" id="heart">❤️</div>
+        </div> 
+
+        
+        <!-- Card (Initially Hidden) -->
+        <div id="card" class="hidden w-64 h-50 bg-white drop-shadow-2xl p-4 mt-4 rounded-lg transfrom hover:-translate-y-2">
+            <h2 class="text-lg font-bold">Farewell! 🎉</h2>
+            <p class="text-gray-600">Wishing you all the best on your journey ahead! ✨</p>
+            <p class="text-gray-600 mt-2">Thanks for all the help!💖</p>
+            <p class="text-gray-600 mt-2 mb-2">You will be missed <span class="text-red-500 font-bold">Neda</span> 😢❤️</p>
+            <div class="mt-4 text-5xl swing-heart">❤️</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('heart').addEventListener('click', function() {
+            document.getElementById('envelope').classList.add('hidden');
+            document.getElementById('card').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
